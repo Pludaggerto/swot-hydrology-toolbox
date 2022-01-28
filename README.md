@@ -1,4 +1,4 @@
-# SWOT Hydrology Toolbox.
+# SWOT Hydrology Toolbox
 
 Copyright (C) 2018-2020 Centre National d'Etudes Spatiales
 
@@ -380,7 +380,7 @@ dependencies:
   - zeromq=4.2.5=hf484d3e_1
   - zict=0.1.3=py36_0
   - zlib=1.2.11=h7b6447c_3
-  
+
 ### Python environment installation
 
 #### Setting up a conda environment
