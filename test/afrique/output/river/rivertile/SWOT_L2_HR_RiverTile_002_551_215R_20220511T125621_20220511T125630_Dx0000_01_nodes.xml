@@ -1,0 +1,572 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<swot_product>
+  <global_attributes>
+    <Conventions>Esri conventions as given in 'ESRI Shapefile Technical Description, an ESRI White Paper, July 1998' http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf</Conventions>
+    <title>Level 2 KaRIn High Rate River Tile Node Data Product</title>
+    <institution>NASA/JPL</institution>
+    <source>Ka-band radar interferometer</source>
+    <history>Created 2021-11-27T13:49:50.976110</history>
+    <platform>SWOT</platform>
+    <references></references>
+    <reference_document></reference_document>
+    <contact></contact>
+    <cycle_number>2</cycle_number>
+    <pass_number>551</pass_number>
+    <tile_number>215</tile_number>
+    <swath_side>R</swath_side>
+    <tile_name>551_215R</tile_name>
+    <short_name>L2_HR_RiverTile</short_name>
+    <product_file_id>Node</product_file_id>
+    <crid></crid>
+    <product_version></product_version>
+    <pge_name></pge_name>
+    <pge_version></pge_version>
+    <time_coverage_start></time_coverage_start>
+    <time_coverage_end></time_coverage_end>
+    <geospatial_lon_min></geospatial_lon_min>
+    <geospatial_lon_max></geospatial_lon_max>
+    <geospatial_lat_min></geospatial_lat_min>
+    <geospatial_lat_max></geospatial_lat_max>
+    <inner_first_longitude>86.38393952224419</inner_first_longitude>
+    <inner_first_latitude>33.91713895925656</inner_first_latitude>
+    <inner_last_longitude>86.50617325256883</inner_last_longitude>
+    <inner_last_latitude>34.41599245014297</inner_last_latitude>
+    <outer_first_longitude>86.92988697789899</outer_first_longitude>
+    <outer_first_latitude>33.822100870183874</outer_first_latitude>
+    <outer_last_longitude>87.05515046527748</outer_last_longitude>
+    <outer_last_latitude>34.32006533986483</outer_last_latitude>
+    <xref_l2_hr_pixc_files>D:\SWOT\swot-hydrology-toolbox\test\afrique\output\simu\SWOT_L2_HR_PIXC_002_551_215R_20220511T125621_20220511T125630_Dx0000_01.nc</xref_l2_hr_pixc_files>
+    <xref_param_l2_hr_rivertile_files></xref_param_l2_hr_rivertile_files>
+    <xref_prior_river_db_files></xref_prior_river_db_files>
+    <xref_reforbittrack_files></xref_reforbittrack_files>
+  </global_attributes>
+  <attributes>
+    <reach_id>
+      <long_name>reach ID with which node is associated</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <coordinates>lon lat</coordinates>
+      <comment>Unique reach identifier from the prior river database. The format of the identifier is CBBBBBRRRRT, where C=continent, B=basin, R=reach, T=type.</comment>
+    </reach_id>
+    <node_id>
+      <long_name>node ID of the node in the prior river database</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <coordinates>lon lat</coordinates>
+      <comment>Unique node identifier from the prior river database. The format of the identifier is CBBBBBRRRRNNNT, where C=continent, B=basin, R=reach, N=node, T=type.</comment>
+    </node_id>
+    <time>
+      <long_name>time (UTC)</long_name>
+      <standard_name>time</standard_name>
+      <calendar>gregorian</calendar>
+      <tai_utc_difference>[value of TAI-UTC at time of first record]</tai_utc_difference>
+      <leap_second>YYYY-MM-DDThh:mm:ssZ</leap_second>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>seconds since 2000-01-01 00:00:00.000</units>
+      <comment>Time of measurement in seconds in the UTC time scale since 1 Jan 2000 00:00:00 UTC. [tai_utc_difference] is the difference between TAI and UTC reference time (seconds) for the first measurement of the data set. If a leap second occurs within the data set, the metadata leap_second is set to the UTC time at which the leap second occurs.</comment>
+    </time>
+    <time_tai>
+      <long_name>time (TAI)</long_name>
+      <standard_name>time</standard_name>
+      <calendar>gregorian</calendar>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>seconds since 2000-01-01 00:00:00.000</units>
+      <comment>Time of measurement in seconds in the TAI time scale since 1 Jan 2000 00:00:00 TAI. This time scale contains no leap seconds. The difference (in seconds) with time in UTC is given by the metadata [time:tai_utc_difference].</comment>
+    </time_tai>
+    <time_str>
+      <long_name>time (UTC)</long_name>
+      <standard_name>time</standard_name>
+      <calendar>gregorian</calendar>
+      <tai_utc_difference>[value of TAI-UTC at time of first record]</tai_utc_difference>
+      <leap_second>YYYY-MM-DDThh:mm:ssZ</leap_second>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>no_data</fill_value>
+      <comment>Time string giving UTC time.  The format is YYYY-MM-DDThh:mm:ssZ, where the Z suffix indicates UTC time.</comment>
+    </time_str>
+    <lat>
+      <long_name>latitude of centroid of water-detected pixels</long_name>
+      <standard_name>latitude</standard_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>degrees_north</units>
+      <valid_min>-80</valid_min>
+      <valid_max>80</valid_max>
+      <comment>Geodetic latitude of the centroid of water-detected pixels assigned to the node.  Positive latitude values increase northward from the equator.</comment>
+    </lat>
+    <lon>
+      <long_name>longitude of centroid of water-detected pixels</long_name>
+      <standard_name>longitude</standard_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>degrees_east</units>
+      <valid_min>-180</valid_min>
+      <valid_max>180</valid_max>
+      <comment>Geodetic longitude of the centroid of water-detected pixels assigned to the node.  The longitude values become more positive to the east and more negative to the west of the Prime Meridian.</comment>
+    </lon>
+    <lat_u>
+      <long_name>uncertainty in the node latitude</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>degrees_north</units>
+      <valid_min>0</valid_min>
+      <valid_max>1</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Total one-sigma uncertainty in the latitude of the centroid of water-detected pixels assigned to the node.</comment>
+    </lat_u>
+    <lon_u>
+      <long_name>uncertainty in the node longitude</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>degrees_east</units>
+      <valid_min>0</valid_min>
+      <valid_max>1</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Total one-sigma uncertainty in the longitude of the centroid of water-detected pixels assigned to the node.</comment>
+    </lon_u>
+    <wse>
+      <long_name>water surface elevation with respect to the geoid</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-1000</valid_min>
+      <valid_max>100000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Fitted node water surface elevation, relative to the provided model of the geoid (geoid_hght), with all corrections for media delays (wet and dry troposphere, and ionosphere), crossover correction, and tidal effects (solid_tide, load_tidef, and pole_tide) applied.</comment>
+    </wse>
+    <wse_u>
+      <long_name>total uncertainty in the water surface elevation</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>0.0</valid_min>
+      <valid_max>999999</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Total one-sigma uncertainty (random and systematic) in the node WSE, including uncertainties of corrections, and variation about the fit.</comment>
+    </wse_u>
+    <wse_r_u>
+      <long_name>random-only uncertainty in the water surface elevation</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>0.0</valid_min>
+      <valid_max>999999</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Random-only uncertainty component in the node WSE, including uncertainties of corrections, and variation about the fit.</comment>
+    </wse_r_u>
+    <width>
+      <long_name>node width</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>0.0</valid_min>
+      <valid_max>100000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Node width.</comment>
+    </width>
+    <width_u>
+      <long_name>total uncertainty in the node width</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>0</valid_min>
+      <valid_max>100000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Total one-sigma uncertainty (random and systematic) in the node width.</comment>
+    </width_u>
+    <area_total>
+      <long_name>total water surface area including dark water</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m^2</units>
+      <valid_min>0</valid_min>
+      <valid_max>2000000000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Total estimated water surface area, including dark water that was not detected as water in the SWOT observation but identified through the use of a prior water likelihood map.</comment>
+    </area_total>
+    <area_tot_u>
+      <long_name>uncertainty in the total water surface area</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m^2</units>
+      <valid_min>0</valid_min>
+      <valid_max>2000000000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Total one-sigma uncertainty (random and systematic) in the total estimated water surface area area_total.</comment>
+    </area_tot_u>
+    <area_detct>
+      <long_name>surface area of detected water pixels</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m^2</units>
+      <valid_min>0</valid_min>
+      <valid_max>2000000000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Surface area of node that was detected as water by the SWOT observation.</comment>
+    </area_detct>
+    <area_det_u>
+      <long_name>uncertainty in the surface area of detected water</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m^2</units>
+      <valid_min>0</valid_min>
+      <valid_max>2000000000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Total one-sigma uncertainty (random and systematic) in the surface area of the detected water pixels.</comment>
+    </area_det_u>
+    <area_wse>
+      <long_name>area used to compute water surface elevation</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m^2</units>
+      <valid_min>0</valid_min>
+      <valid_max>2000000000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Surface area of the node that contributed to the computation of the WSE.</comment>
+    </area_wse>
+    <layovr_val>
+      <long_name>metric of layover effect</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>TBD</units>
+      <valid_min>0</valid_min>
+      <valid_max>1</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Value indicating an estimate of the height error due to layover (TBD).</comment>
+    </layovr_val>
+    <node_dist>
+      <long_name>distance between observed and prior river database node location</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>0</valid_min>
+      <valid_max>10000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Distance between the observed node location and the node location in the prior river database.</comment>
+    </node_dist>
+    <xtrk_dist>
+      <long_name>distance to the satellite ground track</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-75000</valid_min>
+      <valid_max>75000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Distance of the observed node location from the spacecraft nadir track.  A negative value indicates the left side of the swath, relative to the spacecraft velocity vector.  A positive value indicates the right side of the swath.</comment>
+    </xtrk_dist>
+    <flow_angle>
+      <long_name>river flow direction relative to the satellite ground track</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>degrees</units>
+      <valid_min>0</valid_min>
+      <valid_max>360</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>River flow direction for the node relative to the direction of the spacecraft nadir track based on prior data (not the SWOT observation).  A value of zero indicates that the flow is in the same direction as the spacecraft velocity direction.  A value of 90 degrees indicates that the flow is toward the right side of the SWOT swath.</comment>
+    </flow_angle>
+    <node_q>
+      <long_name>summary quality indicator for the node</long_name>
+      <standard_name>status_flag</standard_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999</fill_value>
+      <flag_meanings>good bad</flag_meanings>
+      <flag_masks>TBD</flag_masks>
+      <flag_values>[0 1]</flag_values>
+      <valid_min>0</valid_min>
+      <valid_max>1</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Summary quality indicator for the node measurement. Values of 0 and 1 indicate nominal and off-nominal measurements.</comment>
+    </node_q>
+    <dark_frac>
+      <long_name>fractional area of dark water</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>1</units>
+      <valid_min>0</valid_min>
+      <valid_max>1</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Fraction of node area_total covered by dark water.</comment>
+    </dark_frac>
+    <ice_clim_f>
+      <long_name>climatological ice cover flag</long_name>
+      <standard_name>status_flag</standard_name>
+      <source>Yang et al. (2020)</source>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999</fill_value>
+      <flag_meanings>no_ice_cover uncertain_ice_cover full_ice_cover</flag_meanings>
+      <flag_values>[0 1 2]</flag_values>
+      <valid_min>0</valid_min>
+      <valid_max>2</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Climatological ice cover flag indicating whether the node is ice-covered on the day of the observation based on external climatological information (not the SWOT measurement).  Values of 0, 1, and 2 indicate that the node is likely not ice covered, may or may not be partially or fully, and likely fully ice covered, respectively</comment>
+    </ice_clim_f>
+    <ice_dyn_f>
+      <long_name>dynamical ice cover flag</long_name>
+      <standard_name>status_flag</standard_name>
+      <source>Yang et al. (2020)</source>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999</fill_value>
+      <flag_meanings>no_ice_cover partial_ice_cover full_ice_cover</flag_meanings>
+      <flag_values>[0 1 2]</flag_values>
+      <valid_min>0</valid_min>
+      <valid_max>2</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Dynamic ice cover flag indicating whether the surface is ice-covered on the day of the observation based on analysis of external satellite optical data.  Values of 0, 1, and 2 indicate that the node is not ice covered, partially ice covered, and fully ice covered, respectively.</comment>
+    </ice_dyn_f>
+    <partial_f>
+      <long_name>partial node coverage flag</long_name>
+      <standard_name>status_flag</standard_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999</fill_value>
+      <flag_meanings>covered not_covered</flag_meanings>
+      <flag_values>[0 1]</flag_values>
+      <valid_min>0</valid_min>
+      <valid_max>1</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Flag that indicates only partial node coverage.  The flag is 0 if at least 10 pixels have a valid WSE measurement; the flag is 1 otherwise and node-level quantities are not computed.</comment>
+    </partial_f>
+    <n_good_pix>
+      <long_name>number of pixels that have a valid WSE</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-99999999</fill_value>
+      <units>1</units>
+      <valid_min>0</valid_min>
+      <valid_max>100000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Number of pixels assigned to the node that have a valid node WSE.</comment>
+    </n_good_pix>
+    <xovr_cal_q>
+      <long_name>quality of the cross-over calibration</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999</fill_value>
+      <flag_meanings>TBD</flag_meanings>
+      <flag_masks>TBD</flag_masks>
+      <flag_values>TBD</flag_values>
+      <valid_min>0</valid_min>
+      <valid_max>1</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Quality of the cross-over calibration.</comment>
+    </xovr_cal_q>
+    <rdr_sig0>
+      <long_name>sigma0</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>1</units>
+      <valid_min>-1000</valid_min>
+      <valid_max>10000000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Median of the sigma0 from the pixel cloud points assigned to the node in determining the node WSE.  The value is provided as a linear power ratio, not a value in decibels.  A decibel value may be obtained from: rdr_sig0_in_dB = 10*log10(rdr_sig0).</comment>
+    </rdr_sig0>
+    <rdr_sig0_u>
+      <long_name>uncertainty in sigma0</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>1</units>
+      <valid_min>0</valid_min>
+      <valid_max>1000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Uncertainty of sig0. The value is provided in linear units. This value is a one-sigma additive (not multiplicative) uncertainty term, which can be added to or subtracted from rdr_sig0.</comment>
+    </rdr_sig0_u>
+    <rdr_pol>
+      <long_name>polarization of sigma0</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <coordinates>lon lat</coordinates>
+      <comment>Flag indicating whether the node is observed with a horizontal (H) or vertical (V) signal polarization.</comment>
+    </rdr_pol>
+    <geoid_hght>
+      <long_name>geoid height</long_name>
+      <standard_name>geoid_height_above_reference_ellipsoid</standard_name>
+      <source>EGM2008 (Pavlis et al., 2012)</source>
+      <institution>GSFC</institution>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-150</valid_min>
+      <valid_max>150</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Geoid height above the reference ellipsoid with a correction to refer the value to the mean tide system i.e., includes the permanent tide (zero frequency).</comment>
+    </geoid_hght>
+    <solid_tide>
+      <long_name>solid Earth tide height</long_name>
+      <source>Cartwright and Taylor (1971) and Cartwright and Edden (1973)</source>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-1</valid_min>
+      <valid_max>1</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Solid-Earth (body) tide height. The zero-frequency permanent tide component is not included.</comment>
+    </solid_tide>
+    <load_tidef>
+      <long_name>geocentric load tide height (FES)</long_name>
+      <source>FES2014b (Carrere et al., 2016)</source>
+      <institution>LEGOS/CNES</institution>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-0.2</valid_min>
+      <valid_max>0.2</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Geocentric load tide height. The effect of the ocean tide loading of the Earth's crust. This value is used to compute wse.</comment>
+    </load_tidef>
+    <load_tideg>
+      <long_name>geocentric load tide height (GOT)</long_name>
+      <source>GOT4.10c (Ray, 2013)</source>
+      <institution>GSFC</institution>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-0.2</valid_min>
+      <valid_max>0.2</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Geocentric load tide height. The effect of the ocean tide loading of the Earth's crust.</comment>
+    </load_tideg>
+    <pole_tide>
+      <long_name>geocentric pole tide height</long_name>
+      <source>Wahr (1985) and Desai et al. (2015)</source>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-0.2</valid_min>
+      <valid_max>0.2</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Geocentric pole tide height.  The sum total of the contribution from the solid-Earth (body) pole tide height and the load pole tide height (i.e., the effect of the ocean pole tide loading of the Earth's crust).</comment>
+    </pole_tide>
+    <dry_trop_c>
+      <long_name>dry troposphere vertical correction</long_name>
+      <source>European Centre for Medium-Range Weather Forecasts</source>
+      <institution>ECMWF</institution>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-3.0</valid_min>
+      <valid_max>-1.5</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Equivalent vertical correction due to dry troposphere delay.  Adding the reported correction to the reported reach WSE results in the uncorrected reach WSE.</comment>
+    </dry_trop_c>
+    <wet_trop_c>
+      <long_name>wet troposphere vertical correction</long_name>
+      <source>European Centre for Medium-Range Weather Forecasts</source>
+      <institution>ECMWF</institution>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-1</valid_min>
+      <valid_max>0</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Equivalent vertical correction due to wet troposphere delay.  Adding the reported correction to the reported reach WSE results in the uncorrected reach WSE.</comment>
+    </wet_trop_c>
+    <iono_c>
+      <long_name>ionosphere vertical correction</long_name>
+      <source>Global Ionosphere Maps</source>
+      <institution>JPL</institution>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-0.5</valid_min>
+      <valid_max>0</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Equivalent vertical correction due to ionosphere delay.  Adding the reported correction to the reported reach WSE results in the uncorrected reach WSE.</comment>
+    </iono_c>
+    <xovr_cal_c>
+      <long_name>WSE correction from KaRIn crossovers</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-10</valid_min>
+      <valid_max>10</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Height correction from KaRIn crossover calibration.  The correction is applied before geolocation but reported as an equivalent height correction.</comment>
+    </xovr_cal_c>
+    <p_wse>
+      <long_name>node water surface elevation</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-1000</valid_min>
+      <valid_max>10000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Node WSE from the prior river database.</comment>
+    </p_wse>
+    <p_wse_var>
+      <long_name>node water surface elevation variability</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>0</valid_min>
+      <valid_max>10000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Node WSE spatial variability from the prior river database.</comment>
+    </p_wse_var>
+    <p_width>
+      <long_name>node width</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>10</valid_min>
+      <valid_max>100000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Node width from prior river database.</comment>
+    </p_width>
+    <p_wid_var>
+      <long_name>node width variability</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>0</valid_min>
+      <valid_max>100000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Node width spatial variability from the prior river database.</comment>
+    </p_wid_var>
+    <p_dist_out>
+      <long_name>distance from the node to the outlet</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>-10000</valid_min>
+      <valid_max>10000000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Along-stream distance from the node to the outlet, from the prior river database.</comment>
+    </p_dist_out>
+    <p_length>
+      <long_name>length of node</long_name>
+      <tag_basic_expert>Basic</tag_basic_expert>
+      <fill_value>-999999999999</fill_value>
+      <units>m</units>
+      <valid_min>10</valid_min>
+      <valid_max>1000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Length of the node from the prior river database. This value is used to compute the node width from the water surface area.</comment>
+    </p_length>
+    <p_dam_id>
+      <long_name>dam ID from GRanD database</long_name>
+      <source>Lehner et al. (2011)</source>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-99999999</fill_value>
+      <units>1</units>
+      <valid_min>0</valid_min>
+      <valid_max>10000</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Dam ID from the Global Reservoir and Dam (GRanD) database. The value is 0 if there is no influence of dams at the node, and a positive value indicates there is an influence of a dam at the node. The value of grand_id identifies the dam ID in the GRanD database.  Nodes influenced by dams are indicated by the type code in node_id.</comment>
+    </p_dam_id>
+    <p_n_ch_max>
+      <long_name>maximum number of channels detected in node</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999</fill_value>
+      <units>1</units>
+      <valid_min>0</valid_min>
+      <valid_max>100</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Maximum number of channels at the node, from the prior river database.</comment>
+    </p_n_ch_max>
+    <p_n_ch_mod>
+      <long_name>mode of the number of channels at the node</long_name>
+      <tag_basic_expert>Expert</tag_basic_expert>
+      <fill_value>-999</fill_value>
+      <units>1</units>
+      <valid_min>0</valid_min>
+      <valid_max>100</valid_max>
+      <coordinates>lon lat</coordinates>
+      <comment>Mode of the number of channels at the node, from the prior river database.</comment>
+    </p_n_ch_mod>
+  </attributes>
+</swot_product>

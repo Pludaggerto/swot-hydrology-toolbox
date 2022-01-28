@@ -1,0 +1,7 @@
+# Mission start:    2022-04-01 00:00:00
+# Simulation start: 2022-08-01 00:00:00
+# Simulation stop:  2022-09-01 00:00:00
+#
+#run      cycle orbit MissionTime year DayOfYear       date     time
+c006_t542      6  542    10684985 2022 214.66881 2022-08-02 16:03:05
+c007_t542      7  542    12487682 2022 235.53336 2022-08-23 12:48:02

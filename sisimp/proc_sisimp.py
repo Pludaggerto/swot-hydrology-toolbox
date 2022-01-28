@@ -24,9 +24,10 @@ import lib.my_tools as my_tools
 
 import sisimp_processing as sisimp_ps
 
-
-if __name__ == '__main__':
-    
+def run_by_cmd():
+    """
+    LWX: The origin running method, which is by cmd
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument("parameter_file", type=str)
     parser.add_argument("-v", "--verbose", help="Verbose level (DEBUG or INFO=default)", nargs="?", type=str, default="INFO")
@@ -80,3 +81,71 @@ if __name__ == '__main__':
     print("")
     print(timer.stop())
     print("===== sisimp = END =====")
+
+
+def run_by_code():
+    os.chdir(r"D:\Personal\Desktop\SWOT\swot-hydrology-toolbox\test\afrique")
+   
+    # parameter
+    env = "D:\\Personal\\Desktop\SWOT\\\swot-hydrology-toolbox\\test\\afrique\\"
+    parameter_file = env + "rdf\\parameter_sisimp.rdf"
+    verbose = "INFO"
+    logfile = True
+
+    print("===== sisimp = BEGIN =====")
+    timer = my_timer.Timer()
+    timer.start()
+
+    # Parameter file
+    print("> Parameter file = {}".format(parameter_file))
+    my_tools.testFile(parameter_file)
+    
+    # Verbose level
+    verbose_level = my_api.setVerbose(verbose)
+    print("> Verbose level = {}".format(verbose_level))
+
+    # Log file
+    if logfile:
+        logFile = os.path.join(os.path.dirname(parameter_file), "sisimp_" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + ".log")
+        my_api.initLogger(logFile, verbose_level)
+        print("> Log file = {}".format(logFile))
+    else:
+        print("> No log file ; print info on screen")
+    print()
+
+    # 1 - Initialisation
+    mySimu = sisimp_ps.Processing()
+    my_api.printInfo(timer.info(0))
+    
+    # 2 - Run preprocessing
+    mySimu.run_preprocessing(parameter_file)
+    my_api.printInfo(timer.info(0))
+    
+    # 3 - Run processing
+    mySimu.run_processing()
+    my_api.printInfo(timer.info(0))
+
+    # 4 - Run post-processing
+    mySimu.run_postprocessing()
+    my_api.printInfo(timer.info(0))
+    
+    my_api.printInfo("")
+    my_api.printInfo(timer.stop())
+    
+    # Close logger
+    if logfile:
+        my_api.closeLogger()
+    
+    print("")
+    print(timer.stop())
+    print("===== sisimp = END =====")
+
+
+if __name__ == '__main__':
+    runCMD = False;
+    if(runCMD):
+        run_by_cmd()
+    else:
+        run_by_code()
+
+

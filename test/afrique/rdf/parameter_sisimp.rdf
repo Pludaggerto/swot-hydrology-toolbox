@@ -1,12 +1,12 @@
-Run directory for orbits = $SWOT_HYDROLOGY_TOOLBOX/test/afrique/output/orbit
-Shapefile path = $SWOT_HYDROLOGY_TOOLBOX/test/afrique/data/afrique_test
-Output directory = $SWOT_HYDROLOGY_TOOLBOX/test/afrique/output/simu
+Run directory for orbits = D:\Personal\Desktop\SWOT\swot-hydrology-toolbox\test\afrique\output\orbit
+Shapefile path = D:\Personal\Desktop\SWOT\swot-hydrology-toolbox\test\afrique\data\data
+Output directory = D:\Personal\Desktop\SWOT\swot-hydrology-toolbox\test\afrique\output\simu
 
 !### Noise and error files 
-Noise file path = $SWOT_HYDROLOGY_TOOLBOX/sisimp/data/height_noise_presum2.txt
+Noise file path = D:\Personal\Desktop\SWOT\swot-hydrology-toolbox\sisimp\data\height_noise_presum2.txt
 roll_repository_name = /work/ALT/swot/swototar/XOVERCAL/karin
 
-Tile database path = $SWOT_HYDROLOGY_TOOLBOX/sisimp/data/tiles_full.txt.zip
+Tile database path = D:\Personal\Desktop\SWOT\swot-hydrology-toolbox\sisimp\data\tiles_full.txt.zip
 
 !### Orbit parameters
 !3 options =
@@ -46,7 +46,7 @@ Tropo model  = map
 Tropo error stdv = 0.03
 Tropo error mean = 0.01
 Tropo error correlation = 5000
-Tropo error map file = $SWOT_HYDROLOGY_TOOLBOX/sisimp/data/tropo_map/zonal_delta_wtc_J2.nc
+Tropo error map file = D:\Personal\Desktop\SWOT\swot-hydrology-toolbox\sisimp\data\tropo_map\zonal_delta_wtc_J2.nc
 
 !### Files in output
 Create shapefile = yes !Produce output files also as shapefiles
@@ -62,14 +62,14 @@ Create dummy pixc vec river file = yes !Produce L2_HR_PIXCVecRiver product assoc
 !Constant height model t0 = 47076
 !Constant height model period (days) = 365.25
 !### Complex 2D height model parameters (2D variations added for lakes > [Height model min area]) 
-Height model = polynomial    !=polynomial or gaussian; if disabled, only constant height model
-Height 2d model min area = 100.     !(ha) min area of water bodies on which to add complex 2D height model (default=100.)
-Height 2d model stdv = 1.        !stdv for gaussian model (ie Height model = gaussian)
+!Height model = polynomial    !=polynomial or gaussian; if disabled, only constant height model
+!Height 2d model min area = 100.     !(ha) min area of water bodies on which to add complex 2D height model (default=100.)
+!Height 2d model stdv = 1.        !stdv for gaussian model (ie Height model = gaussian)
 
 !### Option 2 - Height is given from a specific attribute in the shapefile of water bodies
-!Height model = reference_height
-!Height shp attribute name = ref_height     !Name of the attribute (default=HEIGHT)
+Height model = reference_height
+Height shp attribute name = ref_height     !Name of the attribute (default=HEIGHT)
 
 !### Option 3 - Height is given in a NetCDF file
 !Height model = reference_file
-!True height file = $SWOT_HYDROLOGY_TOOLBOX/test/river_and_lake/data/true_height_model_river_and_lake.nc
+!True height file = D:\Personal\Desktop\SWOT\swot-hydrology-toolbox\test\river_and_lake\data\true_height_model_river_and_lake.nc

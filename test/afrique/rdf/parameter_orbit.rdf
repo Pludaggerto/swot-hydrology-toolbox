@@ -6,12 +6,12 @@ Mission start time = 2022-04-01
 !== Orbit parameters ==
 
 !Directory of theoretical orbit files
-Orbit repository = $SWOT_HYDROLOGY_TOOLBOX/select_orbit_cnes/swot_science_orbit_june_2015
+Orbit repository = D:\Personal\Desktop\SWOT\swot-hydrology-toolbox\select_orbit_cnes\swot_science_orbit_june_2015
 
 !Studied area bounding box
-DEM south latitude (deg) = -0.3
-DEM north latitude (deg) = 0.1
-DEM west longitude (deg) = 17
+DEM south latitude (deg) = -0.28
+DEM north latitude (deg) = 0.07
+DEM west longitude (deg) = 17.8
 DEM east longitude (deg) = 18.1
 
 !PixC mapping parameters
@@ -22,8 +22,8 @@ NR cross track (m) = 10000.000
 
 !== Pass plan parameters ==
 passplan = yes
-simulation_start_time = 2022-08-01
-simulation_stop_time = 2022-09-01
+simulation_start_time = 2022-04-01
+simulation_stop_time = 2022-06-01
 
 
 !== Output parameters ==

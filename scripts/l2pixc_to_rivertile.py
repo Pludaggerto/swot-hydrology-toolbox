@@ -49,6 +49,7 @@ def l2pixc_to_rivertile(pixc_file, out_riverobs_file, out_pixc_vector_file, rdf_
     format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     logging.basicConfig(level=level, format=format)
 
+    # --lwx--: the river rdf parameter
     config = RDF.RDF()
     config.rdfParse(rdf_file)
     config = dict(config)
@@ -57,9 +58,13 @@ def l2pixc_to_rivertile(pixc_file, out_riverobs_file, out_pixc_vector_file, rdf_
     # (excluding strings)
     for key in config.keys():
         if key in ['geolocation_method', 'reach_db_path', 'height_agg_method',
-                   'area_agg_method']:
+                   'area_agg_method','l2_file','fout_reach',
+                   'fout_node', 'fout_index']:
             continue
         config[key] = ast.literal_eval(config[key])
+
+    # --lwx--: temp dealing
+
 
     if gdem_file is not None:
         import fake_pixc_from_gdem
@@ -101,7 +106,7 @@ def l2pixc_to_rivertile(pixc_file, out_riverobs_file, out_pixc_vector_file, rdf_
         os.remove(pixc_file)
 
 
-def main():
+def run_by_cmd():
     """When run as a script"""
     parser = argparse.ArgumentParser()
     parser.add_argument('l2pixc_annotation_file', help="PixC annotation file", type=str)
@@ -154,11 +159,11 @@ def main():
     
         # Prepare args for l2pixc_to_rivertile.py
         # File path
-        pixc_file = os.path.abspath(ann_cfg['l2pixc file'])
+        pixc_file       = os.path.abspath(ann_cfg['l2pixc file'])
         river_filenames = my_names.riverTileFilenames(IN_pixc_file=pixc_file)
         output_riverobs = os.path.join(river_dir, river_filenames.rivertile_file)
-        output_pixcvec = os.path.join(pixcvec_dir, river_filenames.pixc_vec_river_file)
-        river_ann_file = os.path.join(args['output_dir'], river_filenames.annot_file)
+        output_pixcvec  = os.path.join(pixcvec_dir, river_filenames.pixc_vec_river_file)
+        river_ann_file  = os.path.join(args['output_dir'], river_filenames.annot_file)
 
 
         print("== Run RiverObs ==")
@@ -215,9 +220,125 @@ def main():
     print("")
     print("===== l2pixc_to_rivertile = END =====")
 
+def run_by_code():
+    # --lwx--: pay attention to whether the file is correct
+    os.chdir(r"D:\Personal\Desktop\SWOT\swot-hydrology-toolbox\test\afrique")
+
+    # --lwx--: read_paramter
+    env = "D:\\Personal\\Desktop\\SWOT\\swot-hydrology-toolbox\\test\\afrique\\"
+    l2pixc_annotation_file = env + "output\\simu"
+    output_dir = env + "output\\river"
+    parameter_riverobs = env + "rdf\parameter_river.rdf" 
+    riverobs_path = r"D:\Personal\Desktop\SWOT\RiverObs"
+    noshp = False
+    force = False
+
+    print("===== l2pixc_to_rivertile = BEGIN =====")
+    print("")
+
+    # Load rdf files
+    # --lwx--: find all the "l2pixc_annotation_file" file
+    if os.path.isfile('l2pixc_annotation_file'):
+        # Unite file case
+        rdf_files = glob.glob(l2pixc_annotation_file)
+    else:
+        # multi files case
+        rdf_files = glob.glob(os.path.join(l2pixc_annotation_file,"pixc*.rdf"))
+    if len(rdf_files) == 0:
+        print("> NO PixC annotation file to deal with")
+    else:
+        print("> %d PixC annotation file(s) to deal with" % len(rdf_files))
+    print()
+    print()
+    
+    # Process per annotation file   
+    for pixc_ann_file in rdf_files:
+        
+        print("***** Dealing with PixC annotation file %s *****" % pixc_ann_file)
+        
+        # Open and read RDF file
+        rdf = my_rdf.myRdfReader(os.path.abspath(pixc_ann_file))
+        ann_cfg = rdf.parameters
+        
+        # Create output directories name
+        # For RiverTile products
+        river_dir = os.path.abspath(os.path.join(output_dir, 'rivertile'))
+        if not os.path.isdir(river_dir):
+            os.makedirs(river_dir)
+        # For PIXCVec products
+        pixcvec_dir = os.path.abspath(os.path.join(output_dir, 'pixcvec'))
+        if not os.path.isdir(pixcvec_dir):
+            os.makedirs(pixcvec_dir)
+    
+        # Prepare args for l2pixc_to_rivertile.py
+        # File path
+        pixc_file = os.path.abspath(ann_cfg['l2pixc file'])
+        river_filenames = my_names.riverTileFilenames(IN_pixc_file=pixc_file)
+        output_riverobs = os.path.join(river_dir, river_filenames.rivertile_file)
+        output_pixcvec = os.path.join(pixcvec_dir, river_filenames.pixc_vec_river_file)
+        river_ann_file = os.path.join(output_dir, river_filenames.annot_file)
+
+        # --lwx--: run RiverObs
+        print("== Run RiverObs ==")
+        l2pixc_to_rivertile(pixc_file, output_riverobs, output_pixcvec, os.path.abspath(parameter_riverobs), shpbasedir=river_dir,
+                            log_level="info", gdem_file=None)
+        print("== Run RiverObs OK ==")
+
+        print()
+        
+        # Rename the shapefiles
+        # Node files
+        new_nodes_files = glob.glob(os.path.join(river_dir, "nodes*"))
+        for node_file in new_nodes_files:
+            ext = node_file.split(".")[-1]
+            new_filename = os.path.join(river_dir, river_filenames.rivertile_nodes_file+"."+ext)
+            if os.path.exists(new_filename):
+                os.remove(new_filename)
+            os.rename(node_file, new_filename)
+        # Reach files
+        new_reaches_files = glob.glob(os.path.join(river_dir, "reaches*"))
+        for reach_file in new_reaches_files:
+            ext = reach_file.split(".")[-1]
+            new_filename = os.path.join(river_dir, river_filenames.rivertile_reaches_file+"."+ext)
+            if os.path.exists(new_filename):
+                os.remove(new_filename)
+            os.rename(reach_file, new_filename)
+  
+        # Convert PIXCVecRiver into shapefile if wanted
+        if not noshp:
+         
+            # write pixcvec shapefile
+            print("> Converting PIXCVecRiver .nc file to shapefile...")
+            pixcvec_vars = ["azimuth_index", 
+                            "range_index",
+                            "pixc_index",
+                            "height_vectorproc", 
+                            "lake_flag",
+                            "node_id",
+                            "reach_id"]
+            cnes.modules.geoloc.lib.pixc_to_shp.pixc_to_shp(
+                output_pixcvec, 
+                output_pixcvec.replace(".nc",".shp"), 
+                "latitude_vectorproc", "longitude_vectorproc", 
+                pixcvec_vars, group_name=None)
+
+        # Write annotation file
+        write_annotation_file(
+            river_ann_file, 
+            pixc_file,
+            output_pixcvec)
+        
+        print()
+
+    print("")
+    print("===== l2pixc_to_rivertile = END =====")
 
 #######################################
 
 
 if __name__ == "__main__":
-    main()
+    runCMD = False;
+    if(runCMD):
+        run_by_cmd()
+    else:
+        run_by_code()

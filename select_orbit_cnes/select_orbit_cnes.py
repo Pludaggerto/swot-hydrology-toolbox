@@ -20,13 +20,15 @@ from __future__ import division
 import argparse
 import datetime
 import os
-
+import sys
+  
 from module_processing import Processing
 from ressources.utils import my_timer, my_api
 
-
-if __name__ == '__main__':
-    
+def run_by_cmd():
+    """
+    LWX: The origin running method, which is by cmd
+    """
     # 0 - Parse inline parameters
     parser = argparse.ArgumentParser(description="Compute orbit files specific to the studied area")
     parser.add_argument("param_file", help="full path to the parameter file (*.rdf)")
@@ -75,4 +77,64 @@ if __name__ == '__main__':
         
     my_api.printInfo(timer.stop())
     my_api.printInfo("===== select_orbit_cnes = END =====")
+
+def run_by_code():
+   
+    os.chdir(r"D:\Personal\Desktop\SWOT\swot-hydrology-toolbox\test\afrique")
+   
+    # parameter
+    env = "D:\\Personal\\Desktop\\SWOT\\swot-hydrology-toolbox\\test\\afrique\\"
+    param_file = env + "rdf\\parameter_orbit.rdf"
+    output_dir = env + "output\\orbit"
+    verbose = "INFO"
+    logfile = True
+
+    # Verbose level
+    verbose_level = my_api.setVerbose(verbose)
+    my_api.printInfo("Verbose level = {}".format(verbose_level))
+
+    if (logfile):
+        logFile = os.path.join(os.path.dirname(param_file), "select_orbit_" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + ".log")
+        my_api.initLogger(logFile, verbose_level)
+        my_api.printInfo("Log file = {}".format(logFile))
+    else:
+        my_api.printInfo("No log file ; print info on screen")
+    my_api.printInfo("")
+
+    my_api.printInfo("===== select_orbit_cnes = BEGIN =====")
+    my_api.printInfo("")
+    timer = my_timer.Timer()
+    timer.start()
+
+    try:
+        
+        # 1 - Init processing
+        process = Processing(param_file, output_dir)
+        
+        # 2 - Run preprocessing
+        ret = process.run_preprocessing()
+            
+        if (ret == 0):
+            
+            # 3 - Run processing
+            ret = process.run_processing()
+            
+            if (ret == 0):
+                # 4 - Run postprocessing
+                ret = process.run_postprocessing()
+                    
+    except (BaseException) as bex:
+        my_api.printInfo("Uncaught exception in module processing")
+        raise
+        
+    my_api.printInfo(timer.stop())
+    my_api.printInfo("===== select_orbit_cnes = END =====")
+
+if __name__ == '__main__':
+    runCMD = False;
+    if(runCMD):
+        run_by_cmd()
+    else:
+        run_by_code()
+
     
